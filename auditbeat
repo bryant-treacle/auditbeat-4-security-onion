@@ -1,0 +1,14 @@
+{
+"description" : "auditbeat",
+  "processors" : [
+    { "set":           { "if": "ctx.host?.name != null", "field": "observer.name", "value": "{{host.name}}", "override": true } },
+    { "set":           { "if": "ctx.event?.category != null",   "field": "event.dataset", "value":"{{event.category}}", "override": true }  },
+    { "gsub":          { "field": "event.dataset",    "pattern": "[{0=}]",    "replacement": ""  }},
+    { "gsub":          { "field": "event.dataset",    "pattern": "\\d",    "replacement": ""  }},
+    { "set":           { "field": "event.category",   "value": "host", "override": true }  },
+    { "set":           { "if": "ctx.auditd?.data?.syscall == 'connect'",   "field": "event.dataset", "value":"network_connection", "override": true }  },
+    { "set":           { "if": "ctx.auditd?.data?.syscall == 'execve'",   "field": "event.dataset", "value":"process_creation", "override": true }  },
+    { "rename":        { "field": "process.title",    "target_field": "process.command_line",          "ignore_missing": true  } },
+    { "community_id": {} }
+  ]
+}
