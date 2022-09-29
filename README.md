@@ -11,6 +11,8 @@ sudo cp audit.rules /opt/so/saltstack/local/salt/elasticsearch/files/ingest/
 sudo so-elasticsearch-restart
 ```
 ## Installing Auditbeat on Linux Server
+#### Manager Node
+Prior to installing Filebeat on the Linux server, run the `so-allow` command to allow beats endpoints to connect.
 
 #### Download the appropriate Auditbeat package for your opertating system from the Downloads tab in the Security Onion Console interface.
 
@@ -19,7 +21,7 @@ sudo so-elasticsearch-restart
 sudo dpkg -i auditbeat-oss*
 ```
 
-#### Modify the Auditd rules by either updateing the sample-rules.conf.disabled located in the /etc/auditbeat/audit.rules.d/ directory, or adding a custom configuration file. 
+#### Modify the Auditd rules by either updateing the sample-rules.conf.disabled located in the /etc/auditbeat/audit.rules.d/ directory, or adding a custom configuration file. The provided audit.rules files is a modified version of 
 
 #### Modify the auditbeat.yaml file to point to logstash on the manager node.
 ```
