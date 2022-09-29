@@ -1,4 +1,7 @@
-# auditbeat-4-security-onion
+# Manager Node Configurations ver 2.3.160 and earlier
+## Add the below Elastic Ingest Parsers for Auditbeat to the Manager Node
+
+
 
 
 auditbeat.yaml
