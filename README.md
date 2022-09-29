@@ -21,7 +21,7 @@ Prior to installing Filebeat on the Linux server, run the `so-allow` command to 
 sudo dpkg -i auditbeat-oss*
 ```
 
-#### Modify the Auditd rules by either updateing the sample-rules.conf.disabled located in the /etc/auditbeat/audit.rules.d/ directory, or adding a custom configuration file. The provided audit.rules files is a modified version of 
+#### Modify the Auditd rules by either updateing the sample-rules.conf.disabled located in the /etc/auditbeat/audit.rules.d/ directory, or adding a custom configuration file. The provided audit.rules files is a modified version of cyberwardogs auditd.rules files. 
 
 #### Modify the auditbeat.yaml file to point to logstash on the manager node.
 ```
